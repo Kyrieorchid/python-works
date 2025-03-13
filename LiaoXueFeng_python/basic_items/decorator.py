@@ -58,14 +58,14 @@ def log(text = None):
         return wrapper
     return decorator
 
-def log(fn):
+def logger(fn):
     @functools.wraps(fn)
     def wrapper(*args, **kv):
             print("call %s" % fn.__name__)
             return fn(*args, **kv)
     return wrapper
 
-@log
+@logger
 def f1():
     print("f1 without log text")
 
